@@ -11,7 +11,7 @@ import java.util.*;
 public class ThreeSum {
     public static void main(String[] args) {
         ThreeSum threeSum = new ThreeSum();
-        int[] num = {0, 0, 0, 0, 0, 0, 0, 0};
+        int[] num = {-1, 0, 1, 0};
         System.out.println(threeSum.findTriplets(num));
     }
 
@@ -22,15 +22,20 @@ public class ThreeSum {
         if (nums.length == 0)
             return new ArrayList<>(res);
         Arrays.sort(nums); //To-avoid duplicate triplets
-        for (int i = 0; i < nums.length; i++) {
-            for (int j = i + 1; j < nums.length; j++) {
-                for (int k = j + 1; k < nums.length; k++) {
-                    if (nums[i] + nums[j] + nums[k] == 0) {
-                        res.add(Arrays.asList(nums[i], nums[j], nums[k]));
-                        break;
-                    }
+        for (int i = 0; i < nums.length - 2; i++) {
+            int j = i + 1;
+            int k = nums.length - 1;
+            while (j < k) {
+                int sum = nums[i] + nums[j] + nums[k];
+                if (sum == 0) {
+                    res.add(Arrays.asList(nums[i], nums[j], nums[k]));
+                } else if (sum > 0) {
+                    k--;
+                } else if (sum < 0) {
+                    j++;
                 }
             }
+
         }
         return new ArrayList<>(res);
     }
