@@ -15,7 +15,7 @@ public class GenerateParenthesis {
 
     private static ArrayList<String> findParenthesisSequence(ArrayList<String> result, String s, int left, int right, int max) {
 
-        if (s.length() == 2 * max) { //base condition for bactracking
+        if (left == right && right == max) { //base condition for bactracking
             result.add(s);
             return result;
         }
