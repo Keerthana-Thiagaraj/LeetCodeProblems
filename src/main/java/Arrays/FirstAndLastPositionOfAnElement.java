@@ -23,7 +23,7 @@ public class FirstAndLastPositionOfAnElement {
             }
         }
 
-        if (numStack.isEmpty() || target == 0) {
+        if (numStack.isEmpty()) {
             return new int[]{-1, -1};
         }
         return new int[]{numStack.getLast(), numStack.getFirst()};
