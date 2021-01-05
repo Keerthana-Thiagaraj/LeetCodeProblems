@@ -8,6 +8,9 @@ import java.util.PriorityQueue;
 // Return the wealth that the richest customer has.
 //Input: accounts = [[1,2,3],[3,2,1]]
 //Output: 6
+
+//memory usage is 38.5 with variable max and 38.1 with PQ
+//runtime is 0ms with variable and 1ms with PQ
 public class MaximumWealth {
 
     public static void main(String[] args) {
@@ -18,14 +21,19 @@ public class MaximumWealth {
 
     public static int maximumWealth(int[][] accounts) {
         PriorityQueue priorityQueue = new PriorityQueue();
+        int max = 0;
         int count;
         for (int i = 0; i < accounts.length; i++) {
             count = 0;
             for (int j = 0; j < accounts[i].length; j++) {
                 count += accounts[i][j];
             }
+            if (count > max) {
+                max = count;
+            }
             priorityQueue.add(count);
         }
+        System.out.println(max);
         return (int) Collections.max(priorityQueue);
     }
 }
