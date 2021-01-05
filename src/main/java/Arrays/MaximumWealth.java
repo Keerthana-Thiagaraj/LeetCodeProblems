@@ -33,7 +33,19 @@ public class MaximumWealth {
             }
             priorityQueue.add(count);
         }
-        System.out.println(max);
+
+
+        //Adding columns- not a part of this problem
+//        for (int i = 0; i < accounts[0].length; i++) {
+//            count = 0;
+//            for (int j = 0; j < accounts.length; j++) {
+//
+//                count += accounts[j][i];
+//            }
+//            System.out.println(count);
+//        }
+
+
         return (int) Collections.max(priorityQueue);
     }
 }
